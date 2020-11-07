@@ -3,6 +3,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux,node,react,reactnative
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,node,react,reactnative
 
+ormconfig.json
+
 ### Linux ###
 *~
 
@@ -364,7 +366,8 @@ DerivedData/
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
