@@ -5,6 +5,7 @@ import fs from 'fs';
 
 import User from '../models/User';
 
+import AppError from '../errors/AppError';
 
 import uploadConfig from '../config/upload';
 
@@ -20,7 +21,7 @@ class UpdateUserAvatarService {
     const user = await userRepository.findOne(user_id);
 
     if (!user) {
-      throw Error('Only autenticated users can chage avatar.');
+      throw new AppError('Only autenticated users can chage avatar.', 401);
     }
 
     if (user.avatar) {
