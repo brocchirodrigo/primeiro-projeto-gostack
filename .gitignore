@@ -4,6 +4,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,linux,node,react,reactnative
 
 ormconfig.json
+config
 
 ### Linux ###
 *~
