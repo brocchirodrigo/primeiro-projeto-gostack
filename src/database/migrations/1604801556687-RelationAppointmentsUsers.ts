@@ -17,6 +17,6 @@ export default class RelationAppointmentsUsers1604801556687
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('appointment', 'AppointmentForeignKey');
+    await queryRunner.dropForeignKey('appointments', 'AppointmentForeignKey');
   }
 }
