@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "main": "NODE_ENV=PRODUCTION ts-node --transpile-only --ignore node_modules src/server.ts",
     "build": "NODE_ENV=PRODUCTION tsc",
     "dev:server": "NODE_ENV=test ts-node-dev --inspect --respawn --transpile-only --ignore node_modules src/server.ts",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
@@ -19,6 +20,7 @@
     "multer": "^1.4.2",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.13",
+    "ts-node": "^9.0.0",
     "typeorm": "^0.2.29",
     "uuidv4": "^6.2.4"
   },
