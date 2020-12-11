@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import { getRepository } from 'typeorm';
 import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
-import authConfig from '@config/auth';
+import auth from '@config/auth';
 
 import AppError from '@shared/errors/AppError';
 
@@ -34,7 +35,7 @@ class AuthenticateUserService {
       throw new AppError('Incorrect email/password combination.', 401);
     }
 
-    const { secret, expiresIn } = authConfig.jwt;
+    const { secret, expiresIn } = auth.jwt;
 
     const token = sign({}, secret, {
       subject: user.id,
