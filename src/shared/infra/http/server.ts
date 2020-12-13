@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-console */
 import 'dotenv/config';
-import 'reflect-metadata';
+
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
@@ -10,7 +10,8 @@ import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 import routes from '@shared/infra/http/routes';
 
-import '@shared/infra/typeorm';
+import '@shared/infra/typeorm/index';
+import 'reflect-metadata';
 
 const enviorenment = () => ({
   path: process.env.NODE_ENV === 'test' ? '.env.testing' : '.env',

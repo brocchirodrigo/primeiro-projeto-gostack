@@ -6,14 +6,16 @@ import CreateUserService from '@modules/users/services/CreateUserService';
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
+import UserRepository from '@modules/users/infra/typeorm/repositories/UserRepository';
 
 const UserRouter = Router();
 const upload = multer(uploadConfig);
+const usersRepository = new UserRepository();
 
 UserRouter.post('/', async (request, response) => {
   const { name, email, password } = request.body;
 
-  const createUser = new CreateUserService();
+  const createUser = new CreateUserService(usersRepository);
 
   const user = await createUser.execute({
     name,
@@ -31,7 +33,7 @@ UserRouter.patch(
   ensureAuthenticated,
   upload.single('avatar'),
   async (request, response) => {
-    const updateAvatar = new UpdateUserAvatarService();
+    const updateAvatar = new UpdateUserAvatarService(usersRepository);
 
     const user = await updateAvatar.execute({
       user_id: request.user.id,
