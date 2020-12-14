@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 export default {
   jwt: {
-    secret: process.env.secret,
+    secret: process.env.SECRET,
     expiresIn: '1d',
   },
 };
