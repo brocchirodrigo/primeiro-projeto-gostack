@@ -4,9 +4,9 @@ import UserRepository from '@modules/users/infra/typeorm/repositories/UserReposi
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService';
 
 const sessionsRouter = Router();
-const userRepository = new UserRepository();
 
 sessionsRouter.post('/', async (request, response) => {
+  const userRepository = new UserRepository();
   const { email, password } = request.body;
 
   const authenticateUser = new AuthenticateUserService(userRepository);

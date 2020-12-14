@@ -11,7 +11,9 @@ import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 import routes from '@shared/infra/http/routes';
 
-import '@shared/infra/typeorm';
+import createConnection from '@shared/infra/typeorm';
+
+createConnection();
 
 const app = express();
 
