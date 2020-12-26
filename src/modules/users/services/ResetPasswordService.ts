@@ -43,9 +43,6 @@ class ResetPasswordService {
       throw new AppError('Token expired');
     }
 
-    const testaHora = await differenceInHours(Date.now(), tokenCreatedAt);
-    console.log(testaHora);
-
     user.password = await this.hashProvider.generateHash(password);
     await this.userRepository.save(user);
   }
