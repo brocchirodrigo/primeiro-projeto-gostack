@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { uuid as v4 } from 'uuidv4';
+import { v4 } from 'uuid';
 import { isEqual } from 'date-fns';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
