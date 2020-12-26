@@ -3,6 +3,7 @@ import { injectable, inject } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
 import IUserRepository from '@modules/users/repositories/IUserRepository';
+import IUserTokenRepository from '@modules/users/repositories/IUserTokenRepository';
 import IMailProvider from '@shared/container/providers/MailProvider/models/IMailProvider';
 
 interface IRequest {
@@ -17,6 +18,9 @@ class SendForgotPasswordEmailService {
 
     @inject('MailProvider')
     private mailProvider: IMailProvider,
+
+    @inject('UserTokenRepository')
+    private userTokenRepository: IUserTokenRepository,
   ) {}
 
   public async execute({ email }: IRequest): Promise<void> {
@@ -25,6 +29,8 @@ class SendForgotPasswordEmailService {
     if (!checkUsersExists) {
       throw new AppError('User does not exists');
     }
+
+    await this.userTokenRepository.generate(checkUsersExists.id);
 
     this.mailProvider.sendMail(
       email,
