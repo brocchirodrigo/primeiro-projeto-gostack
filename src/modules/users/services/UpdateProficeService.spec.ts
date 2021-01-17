@@ -109,4 +109,14 @@ describe('UpdateProfile', () => {
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
+
+  it('Should not be able to show the profile from a not existing user', async () => {
+    expect(
+      updateProfile.execute({
+        user_id: 'x',
+        name: 'x',
+        email: 'x',
+      }),
+    ).rejects.toBeInstanceOf(AppError);
+  });
 });
