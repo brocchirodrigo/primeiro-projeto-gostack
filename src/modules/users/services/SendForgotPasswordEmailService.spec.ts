@@ -39,7 +39,7 @@ describe('SendForgotPasswordEmail', () => {
     expect(sendMail).toHaveBeenCalled();
   });
 
-  it('Shold not be able to recover a non-existing user password', async () => {
+  it('Should not be able to recover a non-existing user password', async () => {
     await expect(
       sendForgotPasswordEmail.execute({
         email: 'johndow@test.com',
@@ -47,7 +47,7 @@ describe('SendForgotPasswordEmail', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('Shold generate a forgot password token', async () => {
+  it('Should generate a forgot password token', async () => {
     const gerenateToken = jest.spyOn(fakeUserTokenRepository, 'generate');
 
     const user = await fakeUsersRepository.create({
