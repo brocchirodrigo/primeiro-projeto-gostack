@@ -21,7 +21,7 @@ class ListProvidersService {
     });
 
     // eslint-disable-next-line no-param-reassign
-    users.forEach(user => delete user.password);
+    // users.forEach(user => delete user.password);
 
     return users;
   }
