@@ -8,7 +8,6 @@ import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllI
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
 
 import Appointment from '@modules/appointments/infra/typeorm/entities/Appointment';
-import { getDay } from 'date-fns/esm';
 
 class AppointmentsRepository implements IAppointmentsRepository {
   private appointments: Appointment[] = [];
@@ -55,11 +54,12 @@ class AppointmentsRepository implements IAppointmentsRepository {
 
   public async create({
     provider_id,
+    user_id,
     date,
   }: ICreateAppointmentDTO): Promise<Appointment> {
     const appointment = new Appointment();
 
-    Object.assign(appointment, { id: v4(), date, provider_id });
+    Object.assign(appointment, { id: v4(), date, provider_id, user_id });
 
     // appointment.id = v4();
     // appointment.date = date;
