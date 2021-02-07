@@ -1,6 +1,5 @@
 import Redis, { Redis as RedisClient } from 'ioredis';
 import CacheConfig from '@config/cache';
-import { K } from 'handlebars';
 import ICacheProvider from '../models/ICacheProviders';
 
 export default class RedisCacheProvider implements ICacheProvider {
@@ -28,15 +27,6 @@ export default class RedisCacheProvider implements ICacheProvider {
 
   public async invalidate(key: string): Promise<void> {
     this.client.del(key);
-    // const keys = await this.client.keys(key);
-
-    // const pipeline = this.client.pipeline();
-
-    // keys.forEach(k => {
-    //   pipeline.del(k);
-    // });
-
-    // await pipeline.exec();
   }
 
   public async invalidatePrefix(prefix: string): Promise<void> {
