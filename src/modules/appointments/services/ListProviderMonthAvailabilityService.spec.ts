@@ -80,6 +80,8 @@ describe('ListProvidersMonthAvailability', () => {
       date: new Date(2020, 4, 21, 8, 0, 0),
     });
 
+    jest.useFakeTimers('modern').setSystemTime(new Date(2020, 3, 18, 7));
+
     const availability = await listProviderMonthAvailability.execute({
       provider_id: 'user',
       year: 2020,
