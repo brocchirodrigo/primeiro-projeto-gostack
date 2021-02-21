@@ -11,7 +11,7 @@ interface IRequest {
   user_id: string;
   name: string;
   email: string;
-  oldPassword?: string;
+  old_password?: string;
   password?: string;
   password_confirmation?: string;
 }
@@ -31,7 +31,7 @@ class UpdateProfileService {
     name,
     email,
     password,
-    oldPassword,
+    old_password,
   }: IRequest): Promise<User> {
     const user = await this.userRepository.findById(user_id);
 
@@ -48,15 +48,15 @@ class UpdateProfileService {
     user.name = name;
     user.email = email;
 
-    if (password && !oldPassword) {
+    if (password && !old_password) {
       throw new AppError(
         'You need to inform the old password to set a new password',
       );
     }
 
-    if (password && oldPassword) {
+    if (password && old_password) {
       const checkOldPassword = await this.hashProvider.compareHash(
-        oldPassword,
+        old_password,
         user.password,
       );
 

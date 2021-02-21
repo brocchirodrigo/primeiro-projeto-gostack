@@ -22,7 +22,7 @@ export default class ProfileController {
     const {
       name,
       email,
-      oldPassword,
+      old_password,
       password,
       password_confirmation,
     } = request.body;
@@ -33,7 +33,7 @@ export default class ProfileController {
       user_id,
       name,
       email,
-      oldPassword,
+      old_password,
       password,
       password_confirmation,
     });
