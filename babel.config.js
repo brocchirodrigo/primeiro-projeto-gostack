@@ -5,9 +5,10 @@ module.exports = {
   ],
   plugins: [
     ['module-resolver', {
-      "@modules": "./src/modules/*",
+      alias: {"@modules": "./src/modules/*",
       "@config": "./src/config/*",
       "@shared": "./src/shared/*"
+    }
     }],
     "babel-plugin-transform-typescript-metadata",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
