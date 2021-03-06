@@ -2,7 +2,7 @@
   
   *Pré-requisitos*
 
-  Sistema acessado com usuário e senha, definndo perfil de acesso e que possua senha criptografada em banco de dados;
+  Sistema acessado com usuário e senha, definindo perfil de acesso e que possua senha criptografada em banco de dados;
 
 ## Mapeamento de funcionalidades
 
@@ -33,7 +33,7 @@
 
   **RN**
 
-    - O usuário não pode alterar seu e-mail para um e-mail já utilziado;
+    - O usuário não pode alterar seu e-mail para um e-mail já utilizado;
     - Para atualizar sua senha, o usuário deve informar a senha antiga;
     - Para atualizar sua senha, o usuário precisa confirmar a nova
 
@@ -59,9 +59,9 @@
    
   **RF**
 
-    - O usuário deve poder listar todos os pretadores de serviços cadastrados;
+    - O usuário deve poder listar todos os prestadores de serviços cadastrados;
     - O usuário deve poder listar os dias de um mês com pelo menos um horário disponível de um prestador;
-    - O usuário deve poder listar horários disponíveis em um dia especificos de um prestador;
+    - O usuário deve poder listar horários disponíveis em um dia específicos de um prestador;
     - O usuário deve poder realizar novo um agendamento com um prestador;
 
   **RNF**
